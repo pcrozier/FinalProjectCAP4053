@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class AgentController : MonoBehaviour {
+	// Position (x,y) = (transform.position.x, transform.position.y)
+	// Heading (or theta) = transform.rotation
+
 	private float speed; // current speed.
 	public float maxSpeed; // top speed possible.
 	public float acceleration; // how quickly up arrow changes speed
