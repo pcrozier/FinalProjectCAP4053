@@ -21,10 +21,10 @@ public class AgentController : MonoBehaviour {
 	void Update () {
 		// Turning controls....note that it isn't totally lag resistant, but pretty good.
 		if (Input.GetKey("left")) {
-			Debug.Log ("Turning left");
+			//Debug.Log ("Turning left");
 			transform.Rotate (- Vector3.back * turnSpeed * Time.deltaTime); // turning around Z-axis
 		} else if (Input.GetKey("right")) {
-			Debug.Log ("Turning right");
+			//Debug.Log ("Turning right");
 			transform.Rotate (Vector3.back * turnSpeed * Time.deltaTime); // turning around Z-axis
 		}
 
@@ -36,7 +36,7 @@ public class AgentController : MonoBehaviour {
 				speed = maxSpeed;
 			}
 
-			Debug.Log ("Moving forward, speed="+speed);
+			//Debug.Log ("Moving forward, speed="+speed);
 		} else if (Input.GetKey("down")) {
 			speed -= acceleration - friction;
 			
@@ -44,7 +44,7 @@ public class AgentController : MonoBehaviour {
 				speed = -maxSpeed;
 			}
 			
-			Debug.Log ("Moving backward, speed="+speed);
+			//Debug.Log ("Moving backward, speed="+speed);
 		} else {
 			// If moving
 			if (speed != 0){
@@ -62,11 +62,18 @@ public class AgentController : MonoBehaviour {
 					else 
 						speed = 0;
 				}
-				Debug.Log ("Slowing, speed="+speed);
+				//Debug.Log ("Slowing, speed="+speed);
 			}
 		}
 
 		// Actually move with whatever speed we have.
 		transform.position += transform.up * speed * Time.deltaTime;
+	}
+	void OnCollisionEnter2D(Collision2D col) {
+		if (col.gameObject.tag == "Wall") 
+			Debug.Log ("Wall detected");
+		else if (col.gameObject.tag == "Object") 
+			Debug.Log ("Object detected");
+			else Debug.Log ("All Clear");
 	}
 }

@@ -26,6 +26,6 @@ public class MoveInASquare : MonoBehaviour {
 			// Turn
 			transform.Rotate (new Vector3(0,0,-90)); // Turn 90 degrees right
 			remainingLength = length;
-		}
-	}
+		}	
+}
 }
