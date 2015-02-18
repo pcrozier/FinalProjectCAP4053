@@ -19,6 +19,7 @@ public class AgentController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (centerObject.position);
 		// Turning controls....note that it isn't totally lag resistant, but pretty good.
 		if (Input.GetKey("left")) {
 			//Debug.Log ("Turning left");
