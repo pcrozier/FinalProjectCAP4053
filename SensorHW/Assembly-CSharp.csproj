@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\NewSensorScript.cs" />
      <Compile Include="Assets\PiSensor.cs" />
      <Compile Include="Assets\Radar.cs" />
      <Compile Include="Assets\Scripts\Agent3Controller.cs" />

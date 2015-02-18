@@ -11,7 +11,7 @@ public class AgentController : MonoBehaviour {
 	public float deceleration; // how quickly down arrow changes speed
 	public float friction; // resistance to speeding up /slowing down and speed to halt self.
 	public float turnSpeed;  // how quickly left/right arrows change direction
-
+	public Transform centerObject;
 	// Use this for initialization
 	void Start () {
 	
@@ -65,15 +65,17 @@ public class AgentController : MonoBehaviour {
 				//Debug.Log ("Slowing, speed="+speed);
 			}
 		}
-
 		// Actually move with whatever speed we have.
 		transform.position += transform.up * speed * Time.deltaTime;
 	}
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.tag == "Wall") 
-			Debug.Log ("Wall detected");
+			Debug.Log ("Wall");
 		else if (col.gameObject.tag == "Object") 
 			Debug.Log ("Object detected");
-			else Debug.Log ("All Clear");
+			else Debug.Log ("Clear");
 	}
+	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log ("Detected:" + other.attachedRigidbody);
+		}
 }
