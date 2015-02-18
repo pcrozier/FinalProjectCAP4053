@@ -4,7 +4,7 @@ using System.Collections;
 public class AgentController : MonoBehaviour {
 	// Position (x,y) = (transform.position.x, transform.position.y)
 	// Heading (or theta) = transform.rotation
-
+	public float maxDist;
 	private float speed; // current speed.
 	public float maxSpeed; // top speed possible.
 	public float acceleration; // how quickly up arrow changes speed
@@ -77,5 +77,13 @@ public class AgentController : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other) {
 		Debug.Log ("Detected:" + other.attachedRigidbody);
+		Vector3 centerPos = centerObject.position;
+		Vector3 extPos = other.transform.position;
+		
+		// first we need to get the distance of the enemy from the player
+		float dist = Vector3.Distance(centerPos, extPos);
+		
+		if (dist < maxDist)
+			Debug.Log (other.tag + ":" + dist + "units away");
 		}
 }
