@@ -37,7 +37,7 @@ public class AgentController : MonoBehaviour {
 				speed = maxSpeed;
 			}
 
-			//Debug.Log ("Moving forward, speed="+speed);
+			Debug.Log ("Moving forward, speed="+speed);
 		} else if (Input.GetKey("down")) {
 			speed -= acceleration - friction;
 			
@@ -45,7 +45,7 @@ public class AgentController : MonoBehaviour {
 				speed = -maxSpeed;
 			}
 			
-			//Debug.Log ("Moving backward, speed="+speed);
+			Debug.Log ("Moving backward, speed="+speed);
 		} else {
 			// If moving
 			if (speed != 0){
@@ -63,7 +63,7 @@ public class AgentController : MonoBehaviour {
 					else 
 						speed = 0;
 				}
-				//Debug.Log ("Slowing, speed="+speed);
+				Debug.Log ("Slowing, speed="+speed);
 			}
 		}
 		// Actually move with whatever speed we have.
@@ -85,6 +85,6 @@ public class AgentController : MonoBehaviour {
 		float dist = Vector3.Distance(centerPos, extPos);
 		
 		if (dist < maxDist)
-			Debug.Log (other.tag + ":" + dist + "units away");
+			Debug.Log (other.tag + ": " + dist + " units away at: " + other.transform.position);
 		}
 }

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class PiSensor : MonoBehaviour {
 	 // from the Unity Wiki; Original code source :http://wiki.unity3d.com/index.php?title=Radar
-		private int[] a ={0,0,0,0}; 
+		private int[] a = {0,0,0,0}; 
+		private string[] b = {null,null,null,null};
 		public Transform centerObject;
 		public float maxDist;
 		public RComp[] RadaObjects;
@@ -25,7 +26,19 @@ public class PiSensor : MonoBehaviour {
 				foreach (GameObject go in gos){
 					a = nameObj(go,a);
 				}
-			print(" up: "+ a[0] + " right: "+ a[1] + " down: "+ a[2] + " left: " + a[3]);
+			for (int i=0; i<4 ; i++){
+			if (a[i] == 0)
+					b[i] = "None";
+			if (a[i] == 1)
+					b[i] = "Low";
+			if (a[i] == 2)
+					b[i] = "Medium";
+			if (a[i] >= 3)
+					b[i] = "High";
+			
+
+			}
+			print(" up: "+ b[0] + " right: "+ b[1] + " down: "+ b[2] + " left: " + b[3]);
 				//}
 			}
 		}
